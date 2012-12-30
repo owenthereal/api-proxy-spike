@@ -1,0 +1,8 @@
+{
+  "name": "api-proxy-spike",
+  "version": "0.0.1",
+  "dependencies": {
+    "http-proxy": "0.8.6",
+    "proxy-by-url": "0.0.2"
+  }
+}
