@@ -1,10 +1,10 @@
-var config = require('./lib/config'),
-util = require('util'),
-url = require('url'),
-http = require('http'),
-port = config.get('PORT'),
-authUrl = config.get('proxy:auth-url'),
-routes = config.get('proxy:routes');
+var config = require('./lib/config')
+, util     = require('util')
+, url      = require('url')
+, http     = require('http')
+, port     = config.get('PORT')
+, authUrl  = config.get('proxy:auth-url')
+, routes   = config.get('proxy:routes');
 
 // proxy server
 var proxyServer = require('./lib/proxy_server');
