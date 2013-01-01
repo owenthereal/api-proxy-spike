@@ -11,7 +11,7 @@ Solution
 ========
 
 It uses [http-proxy](https://github.com/nodejitsu/node-http-proxy)
-to proxy request. Here is the result of brenchmarking the proxy server by running 3 servers(proxy, auth and resource) in the same process:
+to proxy requests. Here is the brenchmark:
 
 ```
 $ ab -H 'Authorization: Bearer 1234' -n 1000 -c 10 http://127.0.0.1:8001/
