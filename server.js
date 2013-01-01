@@ -2,7 +2,7 @@ var config = require('./lib/config'),
 util = require('util'),
 url = require('url'),
 http = require('http'),
-port = config.get('proxy:port'),
+port = config.get('PORT'),
 authUrl = config.get('proxy:auth-url'),
 routes = config.get('proxy:routes');
 
@@ -24,12 +24,12 @@ http.createServer(function (req, res) {
     res.writeHead(401, { 'Content-Type': 'text/plain' });
     res.end('Incorrect access_token');
   }
-}).listen(9000);
+}).listen(9001);
 
 // resource server
 http.createServer(function (req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('request successfully proxied to: ' + req.url + '\n' + JSON.stringify(req.headers, true, 2));
-}).listen(9001);
+}).listen(9002);
 
-util.puts('http proxy server started on port ' + port + ', auth server started on 9000, resource server started on 9001');
+util.puts('http proxy server started on port ' + port + ', auth server started on 9001, resource server started on 9002');
