@@ -1,10 +1,14 @@
-var util = require('util'),
+var config = require('./lib/config'),
+util = require('util'),
 url = require('url'),
-http = require('http');
+http = require('http'),
+port = config.get('proxy:port'),
+authUrl = config.get('proxy:auth-url'),
+routes = config.get('proxy:routes');
 
 // proxy server
 var proxyServer = require('./lib/proxy_server');
-proxyServer.listen(8001);
+proxyServer.listen(port, authUrl, routes);
 
 // auth server
 http.createServer(function (req, res) {
@@ -28,4 +32,4 @@ http.createServer(function (req, res) {
   res.end('request successfully proxied to: ' + req.url + '\n' + JSON.stringify(req.headers, true, 2));
 }).listen(9001);
 
-util.puts('http proxy server started on port 8001, auth server started on 9000, resource server started on 9001');
+util.puts('http proxy server started on port ' + port + ', auth server started on 9000, resource server started on 9001');
