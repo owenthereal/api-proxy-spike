@@ -17,12 +17,12 @@ http.createServer(function (req, res) {
 
   var accessToken = query["access_token"];
   util.puts('Authenticating with access_token ' + accessToken);
-  if (accessToken) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Correct access_token');
+  if (accessToken == 1234) {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ email: 'foo@bar.com', access_token: accessToken }));
   } else {
-    res.writeHead(401, { 'Content-Type': 'text/plain' });
-    res.end('Incorrect access_token');
+    res.writeHead(401, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Incorrect access token' }));
   }
 }).listen(9001);
 
