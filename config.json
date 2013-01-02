@@ -1,6 +1,6 @@
 {
   "proxy": {
-    "auth-url": "http://localhost:9001",
+    "auth-host": "http://localhost:9001",
     "routes": {
       "/acl": { "port": 80, "host": "www.acl.dev" },
       ".*": { "port": 9002, "host": "localhost" }
